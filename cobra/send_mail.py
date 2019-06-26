@@ -29,7 +29,7 @@ def send_mail(target, filename, receiver):
     msg['To'] = receiver
     msg['Subject'] = '编号 {sid} 项目 Cobra 扫描报告'.format(sid=s_sid)
 
-    msg.attach(MIMEText('扫描项目：{t}\n报告见附件'.format(t=target), 'plain', 'utf-8'))
+    msg.attach(MIMEText('扫描项目：{t}\n或查看Web扫描报告：http://192.168.0.1:5000/?sid={sid}\n报告见附件'.format(t=target, sid=s_sid), 'plain', 'utf-8'))
 
     try:
         with open(filename, 'rb') as f:
