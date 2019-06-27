@@ -122,7 +122,7 @@ def start(target, formatter, output, special_rules, a_sid=None, is_del=False):
         attachment_name = s_sid + '.' + formatter
         write_to_file(target=target, sid=s_sid, output_format=formatter, filename=attachment_name)
         # 发送邮件
-        send_mail(target=target, filename=attachment_name, receiver=output)
+        send_mail(target=target, filename=attachment_name, receiver=output, reportid=a_sid)
     elif output.startswith('http'):
         # HTTP API URL
         pusher = PushToThird(url=output)
